@@ -1,0 +1,42 @@
+using System;
+using System.Threading;
+
+namespace Onluk_sayıyı_Binary_yapma
+{   
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int sayi,bolum=0, kalan,i;
+            basadon:
+            Console.WriteLine("İkilik sisteme çevrilecek sayıyı girin.");
+            sayi = Convert.ToInt32(Console.ReadLine());
+            
+            if (bolum<0)
+            {
+                return;
+            }
+
+            else
+            {
+                for (i=0; i <= sayi; i++)
+                {
+                    bolum = i;
+                    Console.Write("\nOnluk\t: " + bolum + "\nBinary: ");
+                    while (bolum > 1)
+                    {
+                        kalan = bolum % 2;
+                        Console.Write(kalan);
+                        Thread.Sleep(50);
+                        bolum = bolum / 2;
+                    }
+                    Console.WriteLine(bolum);
+                }
+                Console.WriteLine(sayi + " Kadar sonuç yazdırıldı.");
+            }
+            Console.ReadLine();
+            Console.Clear();
+            goto basadon;
+        }
+    }
+}
